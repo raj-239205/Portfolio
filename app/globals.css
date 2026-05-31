@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import "../styles/custom.css";
+
+@theme {
+  --color-bg-primary: #081224;
+  --color-bg-secondary: #17253d;
+  --color-bg-card: #1b2a42;
+  --color-accent-gold: #f7c948;
+  --color-accent-blue: #3b82f6;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b8c1d1;
+  --color-border-subtle: rgba(247, 201, 72, 0.12);
+  --color-border-blue: rgba(59, 130, 246, 0.20);
+  --color-glow-gold: rgba(247, 201, 72, 0.08);
+  --color-glow-blue: rgba(59, 130, 246, 0.10);
+
+  --font-headings: "Orbitron", sans-serif;
+  --font-body: "Poppins", sans-serif;
+}
