@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 interface SkillItem {
   name: string;
-  tooltip: string;
+  level: number;
 }
 
 interface SkillCategory {
@@ -14,6 +14,9 @@ interface SkillCategory {
   isBlueTheme?: boolean;
   icon: React.ReactNode;
   skills: SkillItem[];
+  detailedSkills: string[];
+  learningFocus: string;
+  experienceLevel: string;
 }
 
 const skillCategories: SkillCategory[] = [
@@ -21,47 +24,60 @@ const skillCategories: SkillCategory[] = [
     title: "Programming",
     icon: <Code size={22} />,
     skills: [
-      { name: "Python", tooltip: "Used in Hospital Management System & AI research" },
-      { name: "SQL", tooltip: "Database query optimization & management" },
-      { name: "C/C++", tooltip: "Competitive programming & core logic execution" },
-      { name: "Java", tooltip: "Object-oriented software development design" },
+      { name: "Python", level: 90 },
+      { name: "SQL", level: 85 },
+      { name: "C/C++", level: 80 },
+      { name: "Java", level: 70 },
     ],
+    detailedSkills: ["Python scripting", "SQL query optimization", "C/C++ programming", "Java fundamentals"],
+    learningFocus: "Advanced algorithms & scripting architectures",
+    experienceLevel: "Active since 2024",
   },
   {
     title: "AI & ML",
     isBlueTheme: true,
     icon: <Cpu size={22} />,
     skills: [
-      { name: "Machine Learning", tooltip: "Currently learning & exploring models" },
-      { name: "Artificial Intelligence", tooltip: "Foundational search & planning concepts" },
+      { name: "Machine Learning", level: 75 },
+      { name: "Artificial Intelligence", level: 70 },
     ],
+    detailedSkills: ["Supervised/Unsupervised learning", "Data cleaning & analysis", "Model evaluation metrics"],
+    learningFocus: "Deep learning models & framework libraries",
+    experienceLevel: "Active since 2025",
   },
   {
     title: "Web Development",
     icon: <Database size={22} />,
     skills: [
-      { name: "HTML", tooltip: "Frontend document structure & accessibility" },
-      { name: "CSS", tooltip: "Responsive layout design & styling elements" },
-      { name: "JavaScript", tooltip: "Client-side interactive frontend logic" },
+      { name: "HTML/CSS", level: 85 },
+      { name: "JavaScript", level: 75 },
     ],
+    detailedSkills: ["Responsive web design", "CSS flexbox & grid", "DOM manipulation & events"],
+    learningFocus: "Next.js & modern framework concepts",
+    experienceLevel: "Active since 2024",
   },
   {
     title: "Concepts",
     isBlueTheme: true,
     icon: <Cpu size={22} />,
     skills: [
-      { name: "OOPs", tooltip: "Encapsulation, inheritance, polymorphism, abstraction" },
-      { name: "Problem Solving", tooltip: "Data structures, algorithms & logical debugging" },
+      { name: "OOPs", level: 80 },
+      { name: "Problem Solving", level: 80 },
     ],
+    detailedSkills: ["Encapsulation & inheritance", "Polymorphism & abstraction", "Logical debugging"],
+    learningFocus: "Data structures & design patterns",
+    experienceLevel: "Active since 2024",
   },
   {
     title: "Tools",
     icon: <Database size={22} />,
     skills: [
-      { name: "Git", tooltip: "Distributed version control system workflow" },
-      { name: "GitHub", tooltip: "Version control hosting & team collaboration" },
-      { name: "VS Code", tooltip: "Primary code editing & debugging environment" },
+      { name: "VS Code", level: 85 },
+      { name: "Git & GitHub", level: 80 },
     ],
+    detailedSkills: ["Version control workflow", "GitHub collaboration", "Integrated debugging tools"],
+    learningFocus: "Advanced Git, package management, CI/CD",
+    experienceLevel: "Active since 2024",
   },
 ];
 
@@ -131,22 +147,76 @@ export default function Skills() {
                   }}
                 />
 
-                {/* Skill Badges Container */}
-                <div className="flex flex-wrap gap-3 flex-grow content-start pb-2">
+                <div className="flex flex-col gap-6 flex-grow">
                   {category.skills.map((skill) => (
-                    <div key={skill.name} className="relative group/badge">
-                      <span className="cursor-default px-3.5 py-2 bg-bg-secondary/40 border border-white/5 rounded-lg text-sm text-text-secondary hover:text-accent-gold hover:border-accent-gold/30 hover:shadow-[0_0_15px_rgba(247,201,72,0.12)] hover:-translate-y-0.5 transition-all duration-200 block text-center font-medium">
-                        {skill.name}
-                      </span>
-                      {/* Premium Tooltip */}
-                      <div className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-[#0b1b36] text-[0.7rem] text-text-primary rounded shadow-lg pointer-events-none opacity-0 group-hover/badge:opacity-100 transition-opacity duration-200 whitespace-nowrap z-50 border ${
-                        isBlue ? "border-accent-blue/20" : "border-accent-gold/20"
-                      }`}>
-                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-[#0b1b36] z-10" />
-                        {skill.tooltip}
+                    <div key={skill.name} className="flex flex-col">
+                      <div className="flex justify-between text-xs font-semibold mb-2">
+                        <span className="text-text-secondary">{skill.name}</span>
+                      </div>
+                      <div className="w-full h-1.5 bg-bg-secondary rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${skill.level}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
+                          className="h-full rounded-full"
+                          style={{
+                            background: isBlue
+                              ? "linear-gradient(90deg, var(--accent-blue), #60a5fa)"
+                              : "linear-gradient(90deg, var(--accent-gold), var(--accent-blue))",
+                          }}
+                        />
                       </div>
                     </div>
                   ))}
+                </div>
+
+                {/* Desktop hover overlay action area */}
+                <div className="absolute inset-0 bg-[#081224]/98 opacity-0 group-hover:opacity-100 transition-all duration-[250ms] flex flex-col justify-center p-6 z-30 pointer-events-none group-hover:pointer-events-auto hidden md:flex border border-accent-gold/20 rounded-xl">
+                  <div className="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[250ms] ease-out flex flex-col gap-4">
+                    <div>
+                      <h4 className="text-[0.7rem] text-accent-gold uppercase font-semibold tracking-wider mb-2">Detailed Skill List</h4>
+                      <div className="flex flex-wrap gap-1.5">
+                        {category.detailedSkills.map((ds) => (
+                          <span key={ds} className="text-[0.65rem] px-2.5 py-1 border border-white/10 rounded-full bg-white/5 text-text-secondary font-medium">
+                            {ds}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="text-[0.7rem] text-accent-gold uppercase font-semibold tracking-wider mb-1">Learning Focus</h4>
+                      <p className="text-text-secondary text-xs leading-relaxed">{category.learningFocus}</p>
+                    </div>
+                    <div>
+                      <h4 className="text-[0.7rem] text-accent-gold uppercase font-semibold tracking-wider mb-1">Experience Level</h4>
+                      <p className="text-text-secondary text-xs leading-relaxed font-semibold">{category.experienceLevel}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mobile Expanded layout below */}
+                <div className="block md:hidden mt-6 pt-4 border-t border-white/5 flex flex-col gap-4">
+                  <div>
+                    <h4 className="text-[0.7rem] text-accent-gold uppercase font-semibold tracking-wider mb-2">Detailed Skill List</h4>
+                    <div className="flex flex-wrap gap-1.5">
+                      {category.detailedSkills.map((ds) => (
+                        <span key={ds} className="text-[0.65rem] px-2.5 py-1 border border-white/10 rounded-full bg-white/5 text-text-secondary font-medium">
+                          {ds}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <h4 className="text-[0.7rem] text-accent-gold uppercase font-semibold tracking-wider mb-1">Learning Focus</h4>
+                      <p className="text-text-secondary text-xs leading-relaxed">{category.learningFocus}</p>
+                    </div>
+                    <div>
+                      <h4 className="text-[0.7rem] text-accent-gold uppercase font-semibold tracking-wider mb-1">Experience Level</h4>
+                      <p className="text-text-secondary text-xs leading-relaxed font-semibold">{category.experienceLevel}</p>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             );
