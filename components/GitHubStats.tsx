@@ -55,7 +55,7 @@ export default function GitHubStats() {
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   className="max-w-full h-auto object-contain transition-all duration-300"
-                  src="https://github-readme-stats.vercel.app/api?username=rajveer&show_icons=true&theme=transparent&title_color=f7c948&text_color=b8c1d1&icon_color=3b82f6&bg_color=1b2a42&border_color=f7c94820&hide_border=false"
+                  src="https://github-readme-stats.vercel.app/api?username=raj-239205&show_icons=true&theme=transparent&title_color=f7c948&text_color=b8c1d1&icon_color=3b82f6&bg_color=081224&border_color=f7c94820&hide_border=false"
                   alt="Rajveer's GitHub Stats"
                   onError={() => setStatsError(true)}
                 />
@@ -63,10 +63,10 @@ export default function GitHubStats() {
                 <div className="text-center p-6 flex flex-col items-center">
                   <Lock className="text-accent-gold/40 mb-3" size={40} />
                   <h4 className="font-headings text-accent-gold text-md font-bold mb-1 uppercase tracking-wide">
-                    GitHub Stats Locked
+                    GitHub Stats Unavailable
                   </h4>
                   <p className="text-text-secondary text-[0.8rem] max-w-sm">
-                    Replace <code>rajveer</code> with your actual username in the HTML code to fetch stats.
+                    Verify connection parameters or ensure that profile stats are accessible on GitHub.
                   </p>
                 </div>
               )}
@@ -84,7 +84,7 @@ export default function GitHubStats() {
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   className="max-w-full h-auto object-contain transition-all duration-300"
-                  src="https://github-readme-streak-stats.herokuapp.com?user=rajveer&theme=transparent&ring=f7c948&fire=3b82f6&currStreakLabel=f7c948&sideLabels=b8c1d1&dates=b8c1d1&stroke=f7c94820"
+                  src="https://github-readme-streak-stats.herokuapp.com?user=raj-239205&theme=transparent&ring=f7c948&fire=3b82f6&currStreakLabel=f7c948&sideLabels=b8c1d1&dates=b8c1d1&stroke=f7c94820"
                   alt="Rajveer's GitHub Streak"
                   onError={() => setStreakError(true)}
                 />
@@ -92,10 +92,10 @@ export default function GitHubStats() {
                 <div className="text-center p-6 flex flex-col items-center">
                   <Flame className="text-accent-gold/40 mb-3" size={40} />
                   <h4 className="font-headings text-accent-gold text-md font-bold mb-1 uppercase tracking-wide">
-                    Streak Statistics Locked
+                    Streak Statistics Offline
                   </h4>
                   <p className="text-text-secondary text-[0.8rem] max-w-sm">
-                    Configure your personal GitHub credentials in the HTML variables to enable dynamic widgets.
+                    Telemetry offline. Verify GitHub credentials or check API availability status.
                   </p>
                 </div>
               )}
@@ -115,7 +115,7 @@ export default function GitHubStats() {
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   className="max-w-full h-auto object-contain transition-all duration-300 max-h-[380px]"
-                  src="https://github-readme-stats.vercel.app/api/top-langs/?username=rajveer&layout=compact&theme=transparent&title_color=f7c948&text_color=b8c1d1&bg_color=1b2a42&border_color=f7c94820"
+                  src="https://github-readme-stats.vercel.app/api/top-langs/?username=raj-239205&layout=compact&theme=transparent&title_color=f7c948&text_color=b8c1d1&bg_color=081224&border_color=f7c94820"
                   alt="Rajveer's Top Languages"
                   onError={() => setLangsError(true)}
                 />
@@ -123,10 +123,10 @@ export default function GitHubStats() {
                 <div className="text-center p-6 flex flex-col items-center">
                   <Globe className="text-accent-gold/40 mb-3" size={40} />
                   <h4 className="font-headings text-accent-gold text-md font-bold mb-1 uppercase tracking-wide">
-                    Language Analytics Locked
+                    Language Analytics Offline
                   </h4>
                   <p className="text-text-secondary text-[0.8rem] max-w-xs">
-                    Specify your GitHub profile credentials to map languages and attributes on this card.
+                    Could not load language metrics. Verify repository visibility on your GitHub profile.
                   </p>
                 </div>
               )}
@@ -163,7 +163,7 @@ export default function GitHubStats() {
             </svg>
           </a>
           <span className="text-[0.75rem] text-text-secondary opacity-60">
-            ⚙️ Replace &apos;rajveer&apos; in the components/GitHubStats.tsx source code with your actual GitHub username
+            ⚙️ Real-time contribution telemetry sourced dynamically from your GitHub profile API.
           </span>
         </motion.div>
       </div>
