@@ -47,8 +47,8 @@ export default function Contact() {
 
     emailjs
       .send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_a417gp7",
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_wil2wkv",
         {
           name: trimmedName,
           email: trimmedEmail,
@@ -57,7 +57,7 @@ export default function Contact() {
           reply_to: trimmedEmail,
           to_email: "rajveerc944@gmail.com",
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "FyOm1V-T6X9-rIj4k"
       )
       .then(() => {
         setSubmitting(false);
