@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { Briefcase, Code, Award, Pin } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface ExperienceItem {
@@ -38,7 +37,7 @@ export default function Experience() {
           transition={{ duration: 0.5 }}
           className="font-headings text-accent-gold text-xs tracking-[0.2em] mb-3 inline-block font-semibold uppercase"
         >
-          // EXPERIENCE
+          {"// EXPERIENCE"}
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

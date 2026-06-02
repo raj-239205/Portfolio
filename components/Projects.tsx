@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FolderGit2, Play, GitBranch, Lock, BarChart3, Binary, LayoutGrid } from "lucide-react";
+import { BarChart3, Binary } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface ProjectGridItem {
@@ -11,12 +11,30 @@ interface ProjectGridItem {
   tags: string[];
   statusColor: string;
   icon: React.ReactNode;
-  isLocked?: boolean;
   github: string;
   demo?: string;
 }
 
-const otherProjects: ProjectGridItem[] = [
+const projectsList: ProjectGridItem[] = [
+  {
+    title: "OMNI FOODS",
+    description:
+      "A responsive frontend web application designed for an online food service platform. Focused on clean UI, smooth navigation, and an improved user experience for browsing and ordering food online.",
+    status: "COMPLETED",
+    tags: ["HTML", "CSS", "JavaScript"],
+    statusColor: "gold",
+    icon: (
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-accent-gold">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+        <line x1="9" y1="9" x2="15" y2="9" />
+        <line x1="9" y1="13" x2="15" y2="13" />
+        <line x1="9" y1="17" x2="15" y2="17" />
+        <path d="M12 9v8m-4-4h8" strokeWidth="2" />
+      </svg>
+    ),
+    github: "[OMNI_FOODS_GITHUB]",
+    demo: "[OMNI_FOODS_DEMO]",
+  },
   {
     title: "Web-Based Employee Management System",
     description:
@@ -52,7 +70,7 @@ export default function Projects() {
           transition={{ duration: 0.5 }}
           className="font-headings text-accent-gold text-xs tracking-[0.2em] mb-3 inline-block font-semibold uppercase"
         >
-          // PROJECTS
+          {"// PROJECTS"}
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -74,179 +92,9 @@ export default function Projects() {
         </motion.p>
 
         <div className="flex flex-col gap-10">
-          {/* Featured Project */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="bg-bg-card border border-border-subtle rounded-xl overflow-hidden shadow-premium hover:shadow-[0_12px_40px_rgba(247,201,72,0.12)] hover:border-accent-gold/25 hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 flex flex-col group"
-          >
-            {/* Header banner area */}
-            <div className="h-[240px] bg-gradient-to-br from-bg-secondary to-bg-card flex items-center justify-center relative border-b border-white/5 overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-full bg-radial-gradient(circle, rgba(247,201,72,0.04)_0%, transparent_70%) pointer-events-none" />
-              <span className="absolute top-5 left-5 bg-accent-gold/10 border border-accent-gold/20 text-accent-gold text-[0.75rem] font-bold px-3 py-1 rounded uppercase tracking-wider z-10">
-                Featured Mission
-              </span>
-
-              {/* Graphic database icon representation */}
-              <div className="relative text-accent-gold/80 drop-shadow-[0_0_20px_rgba(247,201,72,0.25)] group-hover:scale-110 transition-transform duration-300">
-                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                  <line x1="9" y1="9" x2="15" y2="9" />
-                  <line x1="9" y1="13" x2="15" y2="13" />
-                  <line x1="9" y1="17" x2="15" y2="17" />
-                  <path d="M12 9v8m-4-4h8" strokeWidth="2" />
-                </svg>
-              </div>
-
-              {/* Hover Overlay Action Area - Desktop only */}
-              <div className="absolute inset-0 bg-[#081224]/90 opacity-0 group-hover:opacity-100 transition-all duration-[250ms] flex flex-col justify-center items-center gap-4 z-30 pointer-events-none group-hover:pointer-events-auto hidden md:flex">
-                <div className="flex flex-col gap-3 transform translate-y-4 scale-95 group-hover:translate-y-0 group-hover:scale-100 transition-all duration-[250ms] ease-out">
-                  <div className="flex gap-3">
-                    <a
-                      href="[OMNI_FOODS_GITHUB]"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="View OMNI FOODS GitHub repository in a new tab"
-                      className="px-5 py-2.5 bg-bg-secondary text-white border border-white/10 hover:border-accent-gold hover:text-accent-gold text-xs font-semibold rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-accent-gold"
-                    >
-                      GitHub Repository
-                    </a>
-                    <a
-                      href="[OMNI_FOODS_DEMO]"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="View OMNI FOODS live demo in a new tab"
-                      className="px-5 py-2.5 bg-accent-gold text-bg-primary hover:bg-[#ffe066] text-xs font-semibold rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-accent-gold"
-                    >
-                      Live Demo
-                    </a>
-                  </div>
-                  <a
-                    href="[OMNI_FOODS_GITHUB]/archive/refs/heads/main.zip"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Download OMNI FOODS source code zip file"
-                    className="px-5 py-2.5 bg-transparent border border-white/20 hover:border-accent-gold hover:text-accent-gold text-center text-xs font-semibold rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-accent-gold"
-                  >
-                    Download Source Code
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Body of project */}
-            <div className="p-8">
-              <div className="flex flex-wrap justify-between items-center gap-4 mb-5">
-                <div className="flex gap-2">
-                  <span className="text-[0.72rem] px-2.5 py-1 border border-accent-gold/20 rounded-full text-accent-gold bg-accent-gold/5 font-medium">
-                    HTML
-                  </span>
-                  <span className="text-[0.72rem] px-2.5 py-1 border border-accent-gold/20 rounded-full text-accent-gold bg-accent-gold/5 font-medium">
-                    CSS
-                  </span>
-                  <span className="text-[0.72rem] px-2.5 py-1 border border-accent-gold/20 rounded-full text-accent-gold bg-accent-gold/5 font-medium">
-                    JavaScript
-                  </span>
-                </div>
-                <span className="text-[0.75rem] px-2.5 py-0.5 rounded font-black tracking-wide bg-accent-gold/10 border border-accent-gold/20 text-accent-gold uppercase">
-                  COMPLETED
-                </span>
-              </div>
-
-              <a
-                href="[OMNI_FOODS_DEMO]"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open OMNI FOODS live demo in a new tab"
-                className="hover:text-accent-gold transition-colors duration-300 block w-fit"
-              >
-                <h3 className="font-headings text-2xl font-black text-white mb-4 uppercase tracking-wide">
-                  OMNI FOODS
-                </h3>
-              </a>
-              <p className="text-text-secondary text-sm leading-relaxed mb-6">
-                A responsive frontend web application designed for an online food service platform. Focused on clean UI, smooth navigation, and an improved user experience for browsing and ordering food online.
-              </p>
-
-              {/* Problem/Solution Columns */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-bg-primary/40 border border-white/5 rounded-lg p-5">
-                  <div className="font-headings text-[0.8rem] font-bold text-accent-gold mb-2.5 tracking-wider uppercase">
-                    The Problem
-                  </div>
-                  <p className="text-text-secondary text-xs leading-relaxed">
-                    Online food services often lack simple, intuitive user interfaces, leading to poor customer engagement and difficulty in ordering.
-                  </p>
-                </div>
-                <div className="bg-bg-primary/40 border border-white/5 rounded-lg p-5">
-                  <div className="font-headings text-[0.8rem] font-bold text-accent-gold mb-2.5 tracking-wider uppercase">
-                    The Solution
-                  </div>
-                  <p className="text-text-secondary text-xs leading-relaxed">
-                    Designed a lightweight, responsive interface with intuitive navigation and modern visual hierarchy using vanilla frontend technologies.
-                  </p>
-                </div>
-              </div>
-
-              <h4 className="font-headings text-[0.85rem] font-bold text-accent-gold mb-4 tracking-widest uppercase">
-                KEY UTILITIES UNLOCKED
-              </h4>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8">
-                {[
-                  "Responsive design for mobile, tablet, and desktop viewports",
-                  "Interactive food catalog with clean presentation grids",
-                  "Smooth scroll navigation and optimized user flows",
-                  "User experience-focused design for food browsing and selection",
-                ].map((feat, idx) => (
-                  <li key={idx} className="text-text-secondary text-xs leading-normal flex items-start gap-2.5">
-                    <span className="text-accent-gold select-none mt-0.5 font-bold">✦</span>
-                    <span>{feat}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Action buttons (mobile fallback) */}
-              <div className="flex md:hidden flex-col gap-3 mt-6 pt-4 border-t border-white/5 w-full">
-                <div className="flex gap-3">
-                  <a
-                    href="[OMNI_FOODS_GITHUB]"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="View OMNI FOODS GitHub repository in a new tab"
-                    className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-bg-secondary border border-white/10 text-white font-semibold text-xs rounded-md hover:border-accent-gold hover:text-accent-gold transition-all h-10"
-                  >
-                    GitHub
-                    <GitBranch size={12} />
-                  </a>
-                  <a
-                    href="[OMNI_FOODS_DEMO]"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="View OMNI FOODS live demo in a new tab"
-                    className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-accent-gold text-bg-primary font-semibold text-xs rounded-md shadow-md hover:scale-[1.01] transition-all h-10"
-                  >
-                    Live Demo
-                    <Play size={10} fill="currentColor" />
-                  </a>
-                </div>
-                <a
-                  href="[OMNI_FOODS_GITHUB]/archive/refs/heads/main.zip"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Download OMNI FOODS source code zip file"
-                  className="w-full py-2 bg-transparent border border-white/20 hover:border-accent-gold hover:text-accent-gold text-center text-xs font-semibold rounded-md transition-all h-9 flex items-center justify-center text-text-secondary"
-                >
-                  Download Source Code
-                </a>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Other Grid Projects */}
+          {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {otherProjects.map((proj, idx) => {
+            {projectsList.map((proj, idx) => {
               const isGold = proj.statusColor === "gold";
               const isBlue = proj.statusColor === "blue";
               return (
@@ -277,41 +125,6 @@ export default function Projects() {
                     <div className="group-hover:scale-110 transition-transform duration-300">
                       {proj.icon}
                     </div>
-
-                    {/* Hover Overlay Action Area - Desktop only */}
-                    <div className="absolute inset-0 bg-[#081224]/90 opacity-0 group-hover:opacity-100 transition-all duration-[250ms] flex flex-col justify-center items-center gap-3 z-30 pointer-events-none group-hover:pointer-events-auto hidden md:flex">
-                      <div className="flex flex-col gap-2 w-4/5 transform translate-y-4 scale-95 group-hover:translate-y-0 group-hover:scale-100 transition-all duration-[250ms] ease-out">
-                        <a
-                          href={proj.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`View ${proj.title} GitHub repository in a new tab`}
-                          className="w-full py-2 bg-bg-secondary text-white border border-white/10 hover:border-accent-gold hover:text-accent-gold text-center text-xs font-semibold rounded-md transition-all focus:outline-none focus:ring-2 focus:ring-accent-gold"
-                        >
-                          GitHub Repository
-                        </a>
-                        {proj.demo && (
-                          <a
-                            href={proj.demo}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`View ${proj.title} live demo in a new tab`}
-                            className="w-full py-2 bg-accent-gold text-bg-primary hover:bg-[#ffe066] text-center text-xs font-semibold rounded-md transition-all focus:outline-none focus:ring-2 focus:ring-accent-gold"
-                          >
-                            Live Demo
-                          </a>
-                        )}
-                        <a
-                          href={`${proj.github}/archive/refs/heads/main.zip`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`Download ${proj.title} source code zip file`}
-                          className="w-full py-2 bg-transparent border border-white/20 hover:border-accent-gold hover:text-accent-gold text-center text-xs font-semibold rounded-md transition-all focus:outline-none focus:ring-2 focus:ring-accent-gold text-text-secondary"
-                        >
-                          Download Source Code
-                        </a>
-                      </div>
-                    </div>
                   </div>
 
                   <div className="p-6 flex flex-col justify-between flex-grow">
@@ -323,7 +136,7 @@ export default function Projects() {
                         aria-label={`Open ${proj.title} ${proj.demo ? "live demo" : "GitHub repository"} in a new tab`}
                         className="hover:text-accent-gold transition-colors duration-300 block w-fit"
                       >
-                        <h3 className="text-md font-bold text-white mb-2 group-hover:text-accent-gold transition-colors duration-300">
+                        <h3 className="text-md font-bold text-white mb-2 group-hover:text-accent-gold transition-colors duration-300 font-headings uppercase tracking-wide">
                           {proj.title}
                         </h3>
                       </a>
@@ -348,15 +161,15 @@ export default function Projects() {
                         ))}
                       </div>
 
-                      {/* Action buttons (mobile fallback) */}
-                      <div className="flex md:hidden flex-col gap-2 mt-4 pt-4 border-t border-white/5 w-full">
+                      {/* Action buttons (always visible on mobile, slide up + fade in on hover on desktop) */}
+                      <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-white/5 w-full md:opacity-0 md:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
                         <div className="flex gap-2">
                           <a
                             href={proj.github}
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={`View ${proj.title} GitHub repository in a new tab`}
-                            className="flex-1 py-2 bg-bg-secondary border border-white/10 text-white font-semibold text-[0.7rem] rounded text-center h-8 flex items-center justify-center"
+                            className="flex-1 py-2 bg-bg-secondary text-white border border-white/10 hover:border-accent-gold hover:text-accent-gold text-center text-[0.7rem] font-semibold rounded h-8 flex items-center justify-center transition-all"
                           >
                             GitHub
                           </a>
@@ -366,7 +179,7 @@ export default function Projects() {
                               target="_blank"
                               rel="noopener noreferrer"
                               aria-label={`View ${proj.title} live demo in a new tab`}
-                              className="flex-1 py-2 bg-accent-gold text-bg-primary font-semibold text-[0.7rem] rounded text-center h-8 flex items-center justify-center"
+                              className="flex-1 py-2 bg-accent-gold text-bg-primary hover:bg-[#ffe066] text-center text-[0.7rem] font-semibold rounded h-8 flex items-center justify-center transition-all"
                             >
                               Live Demo
                             </a>
@@ -377,7 +190,7 @@ export default function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`Download ${proj.title} source code zip file`}
-                          className="w-full py-1.5 bg-transparent border border-white/20 hover:border-accent-gold hover:text-accent-gold text-center text-[0.7rem] font-semibold rounded transition-all h-8 flex items-center justify-center text-text-secondary"
+                          className="w-full py-1.5 bg-transparent border border-white/20 hover:border-accent-gold hover:text-accent-gold text-center text-[0.7rem] font-semibold rounded h-8 flex items-center justify-center text-text-secondary transition-all"
                         >
                           Download Source Code
                         </a>

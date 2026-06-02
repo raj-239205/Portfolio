@@ -3,10 +3,12 @@
 import React, { useState } from "react";
 import { Mail, Linkedin, Github, MapPin, Phone, Send, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [emailError, setEmailError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,14 +25,50 @@ export default function Contact() {
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitting(true);
 
-    // Simulate API request delay
-    setTimeout(() => {
-      setSubmitting(false);
-      setFormSubmitted(true);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 1200);
+    const trimmedName = formData.name.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedSubject = formData.subject.trim();
+    const trimmedMessage = formData.message.trim();
+
+    if (!trimmedName || !trimmedEmail || !trimmedSubject || !trimmedMessage) {
+      setEmailError("All fields are required.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(trimmedEmail)) {
+      setEmailError("Please enter a valid email address.");
+      return;
+    }
+
+    setSubmitting(true);
+    setEmailError(null);
+
+    emailjs
+      .send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+        {
+          name: trimmedName,
+          email: trimmedEmail,
+          subject: trimmedSubject,
+          message: trimmedMessage,
+          reply_to: trimmedEmail,
+          to_email: "rajveerc944@gmail.com",
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+      )
+      .then(() => {
+        setSubmitting(false);
+        setFormSubmitted(true);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      })
+      .catch((error) => {
+        console.error("EmailJS sending error:", error);
+        setSubmitting(false);
+        setEmailError("Failed to send message. Please try again later.");
+      });
   };
 
   return (
@@ -43,7 +81,7 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="font-headings text-accent-gold text-xs tracking-[0.2em] mb-3 inline-block font-semibold uppercase"
         >
-          // CONTACT
+          {"// CONTACT"}
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -258,12 +296,18 @@ export default function Contact() {
                     />
                   </div>
 
+                  {emailError && (
+                    <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-4 text-center text-red-400 text-xs font-semibold">
+                      {emailError}
+                    </div>
+                  )}
+
                   <button
                     type="submit"
                     disabled={submitting}
                     className="flex items-center justify-center gap-2 w-full py-3.5 mt-2 bg-accent-gold text-bg-primary font-semibold text-sm rounded-lg hover:scale-[1.01] transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {submitting ? "Initializing connection..." : "Send Message"}
+                    {submitting ? "Sending Message..." : "Send Message"}
                     <Send size={16} strokeWidth={2.5} />
                   </button>
                 </form>
@@ -271,7 +315,7 @@ export default function Contact() {
                 <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-6 text-center text-green-400 flex flex-col items-center gap-3">
                   <CheckCircle size={44} />
                   <div>
-                    <strong className="text-white text-md block mb-1">Connection Request Initialized!</strong>
+                    <strong className="text-white text-md block mb-1">Message Sent Successfully</strong>
                     Your message was received successfully. I&apos;ll get back to you shortly.
                   </div>
                 </div>

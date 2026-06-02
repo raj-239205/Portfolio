@@ -73,7 +73,7 @@ export default function Achievements() {
           transition={{ duration: 0.5 }}
           className="font-headings text-accent-gold text-xs tracking-[0.2em] mb-3 inline-block font-semibold uppercase"
         >
-          // ACHIEVEMENTS
+          {"// ACHIEVEMENTS"}
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

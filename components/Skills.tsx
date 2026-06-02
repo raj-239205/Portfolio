@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Code, Cpu, Database } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -82,6 +82,45 @@ const skillCategories: SkillCategory[] = [
 ];
 
 export default function Skills() {
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [popupStyles, setPopupStyles] = useState<React.CSSProperties>({});
+
+  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>, idx: number) => {
+    setHoveredIdx(idx);
+    const rect = e.currentTarget.getBoundingClientRect();
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    const spaceBelow = viewportHeight - rect.bottom;
+    const spaceAbove = rect.top;
+    const preferUp = spaceBelow < 280 && spaceAbove > spaceBelow;
+
+    const popupWidth = Math.max(320, rect.width);
+    
+    let left = (rect.width - popupWidth) / 2;
+    if (rect.left + left < 16) {
+      left = 16 - rect.left;
+    } else if (rect.left + left + popupWidth > viewportWidth - 16) {
+      left = viewportWidth - 16 - rect.left - popupWidth;
+    }
+
+    const styles: React.CSSProperties = {
+      width: `${popupWidth}px`,
+      left: `${left}px`,
+      position: "absolute",
+    };
+
+    if (preferUp) {
+      styles.bottom = "0px";
+      styles.top = "auto";
+    } else {
+      styles.top = "0px";
+      styles.bottom = "auto";
+    }
+
+    setPopupStyles(styles);
+  };
+
   return (
     <section id="skills" className="py-24 border-b border-white/5 relative">
       <div className="max-w-[1200px] mx-auto px-6 relative z-10">
@@ -92,7 +131,7 @@ export default function Skills() {
           transition={{ duration: 0.5 }}
           className="font-headings text-accent-gold text-xs tracking-[0.2em] mb-3 inline-block font-semibold uppercase"
         >
-          // SKILL SYSTEM
+          {"// SKILL SYSTEM"}
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -123,9 +162,11 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
+                onMouseEnter={(e) => handleMouseEnter(e, idx)}
+                onMouseLeave={() => setHoveredIdx(null)}
                 className={`card flex flex-col h-full relative group transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(247,201,72,0.12)] hover:border-accent-gold/25 ${
                   isBlue ? "card-blue border-border-blue" : ""
-                }`}
+                } ${hoveredIdx === idx ? "z-40" : "z-10"}`}
               >
                 <div className="flex justify-between items-center mb-4">
                   <h3
@@ -172,7 +213,12 @@ export default function Skills() {
                 </div>
 
                 {/* Desktop hover overlay action area */}
-                <div className="absolute inset-0 bg-[#081224]/98 opacity-0 group-hover:opacity-100 transition-all duration-[250ms] flex flex-col justify-center p-6 z-30 pointer-events-none group-hover:pointer-events-auto hidden md:flex border border-accent-gold/20 rounded-xl">
+                <div
+                  style={hoveredIdx === idx ? popupStyles : {}}
+                  className={`absolute bg-[#081224]/98 opacity-0 group-hover:opacity-100 transition-all duration-[250ms] flex flex-col justify-center p-6 z-30 pointer-events-none group-hover:pointer-events-auto hidden md:flex border rounded-xl min-h-full h-auto ${
+                    isBlue ? "border-accent-blue/30" : "border-accent-gold/20"
+                  }`}
+                >
                   <div className="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[250ms] ease-out flex flex-col gap-4">
                     <div>
                       <h4 className="text-[0.7rem] text-accent-gold uppercase font-semibold tracking-wider mb-2">Detailed Skill List</h4>

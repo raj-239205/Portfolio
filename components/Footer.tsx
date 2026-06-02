@@ -92,7 +92,7 @@ export default function Footer() {
           <span>© 2026 Rajveer Choudhary. All rights reserved.</span>
           <span>Built with passion for AI & Engineering</span>
           <span className="font-headings opacity-50 tracking-wider">
-            // Designed & built with the intent to level up.
+            {"// Designed & built with the intent to level up."}
           </span>
         </div>
       </div>
