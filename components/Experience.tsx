@@ -24,6 +24,16 @@ const experiences: ExperienceItem[] = [
     tags: ["HTML", "CSS", "JavaScript", "UI Design", "Responsive Layouts"],
     isGold: true,
   },
+  {
+    role: "AI/ML Project Developer",
+    company: "Smart Waste Segregation using Computer Vision",
+    type: "Project",
+    duration: "2026",
+    description:
+      "Developed an AI-powered waste detection and segregation application using YOLOv8, OpenCV, and Streamlit, including model training, validation, detection statistics, and confidence-based unknown/review handling.",
+    tags: ["Python", "YOLOv8", "OpenCV", "Streamlit", "Computer Vision"],
+    isGold: false,
+  },
 ];
 
 export default function Experience() {
