@@ -25,12 +25,12 @@ const experiences: ExperienceItem[] = [
     isGold: true,
   },
   {
-    role: "AI/ML Project Developer",
-    company: "Smart Waste Segregation using Computer Vision",
+    role: "Smart Waste Segregation using Computer Vision",
+    company: "B.Tech Industrial Training Project",
     type: "Project",
     duration: "2026",
     description:
-      "Developed an AI-powered waste detection and segregation application using YOLOv8, OpenCV, and Streamlit, including model training, validation, detection statistics, and confidence-based unknown/review handling.",
+      "Developed an AI-powered waste detection and segregation application using YOLOv8, OpenCV, and Streamlit. Worked on dataset preparation, model training and validation, inference, detection statistics, and confidence-based unknown/review handling.",
     tags: ["Python", "YOLOv8", "OpenCV", "Streamlit", "Computer Vision"],
     isGold: false,
   },
@@ -149,9 +149,9 @@ export default function Experience() {
                       <div>
                         <h4 className="text-[0.7rem] text-accent-gold uppercase font-semibold tracking-wider mb-2">Responsibilities</h4>
                         <ul className="list-disc list-inside text-xs text-text-secondary flex flex-col gap-1.5">
-                          <li>Designed responsive web pages using HTML, CSS, and JavaScript.</li>
-                          <li>Improved understanding of frontend development concepts.</li>
-                          <li>Worked on UI design and responsive layouts.</li>
+                          <li>Prepared and worked with the waste-detection dataset.</li>
+                          <li>Trained and validated a YOLOv8 computer vision model.</li>
+                          <li>Built the Streamlit inference workflow and detection interface.</li>
                         </ul>
                       </div>
                       <div className="flex justify-between items-center mt-2 pt-2 border-t border-white/5 text-xs text-text-secondary">
@@ -159,11 +159,13 @@ export default function Experience() {
                           <span className="font-semibold text-white">Duration:</span> {exp.duration}
                         </div>
                         <a
-                          href="#"
-                          aria-label="View Bussibees internship certificate"
+                          href="https://github.com/raj-239205/Smart-Waste-Segregation"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="View Smart Waste Segregation project repository"
                           className="text-accent-blue hover:text-white font-bold hover:translate-x-0.5 transition-all"
                         >
-                          View Certificate →
+                          View Project →
                         </a>
                       </div>
                     </div>
@@ -174,9 +176,9 @@ export default function Experience() {
                     <div>
                       <h4 className="text-[0.7rem] text-accent-gold uppercase font-semibold tracking-wider mb-2">Responsibilities</h4>
                       <ul className="list-disc list-inside text-xs text-text-secondary flex flex-col gap-1.5">
-                        <li>Designed responsive web pages using HTML, CSS, and JavaScript.</li>
-                        <li>Improved understanding of frontend development concepts.</li>
-                        <li>Worked on UI design and responsive layouts.</li>
+                        <li>Prepared and worked with the waste-detection dataset.</li>
+                        <li>Trained and validated a YOLOv8 computer vision model.</li>
+                        <li>Built the Streamlit inference workflow and detection interface.</li>
                       </ul>
                     </div>
                     <div className="flex justify-between items-center text-xs text-text-secondary">
@@ -184,11 +186,13 @@ export default function Experience() {
                         <span className="font-semibold text-white">Duration:</span> {exp.duration}
                       </div>
                       <a
-                        href="#"
-                        aria-label="View Bussibees internship certificate"
+                        href="https://github.com/raj-239205/Smart-Waste-Segregation"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="View Smart Waste Segregation project repository"
                         className="text-accent-blue hover:text-white font-bold"
                       >
-                        View Certificate →
+                        View Project →
                       </a>
                     </div>
                   </div>
