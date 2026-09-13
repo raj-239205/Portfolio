@@ -79,6 +79,21 @@ const skillCategories: SkillCategory[] = [
     learningFocus: "Advanced Git, package management, CI/CD",
     experienceLevel: "Active since 2024",
   },
+  {
+    title: "Computer Vision & Data Science",
+    isBlueTheme: true,
+    icon: <Cpu size={22} />,
+    skills: [
+      { name: "Computer Vision", level: 75 },
+      { name: "YOLOv8", level: 75 },
+      { name: "OpenCV", level: 75 },
+      { name: "NumPy / Pandas", level: 80 },
+      { name: "Streamlit", level: 75 },
+    ],
+    detailedSkills: ["Object detection", "Image processing", "Model training & validation", "Data analysis", "Streamlit applications"],
+    learningFocus: "Advanced computer vision and intelligent application deployment",
+    experienceLevel: "Active since 2026",
+  },
 ];
 
 export default function Skills() {
