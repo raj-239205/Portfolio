@@ -17,6 +17,16 @@ interface ProjectGridItem {
 
 const projectsList: ProjectGridItem[] = [
   {
+    title: "Smart Waste Segregation using Computer Vision",
+    description:
+      "An AI-powered waste detection application built with YOLOv8, OpenCV, and Streamlit. Detects five waste categories and provides practical segregation guidance with confidence-based unknown/review handling.",
+    status: "COMPLETED",
+    tags: ["Python", "YOLOv8", "OpenCV", "Streamlit", "Computer Vision"],
+    statusColor: "blue",
+    icon: <Binary className="text-accent-blue" size={48} />,
+    github: "https://github.com/raj-239205/Smart-Waste-Segregation",
+  },
+  {
     title: "OMNI FOODS",
     description:
       "A responsive frontend web application designed for an online food service platform. Focused on clean UI, smooth navigation, and an improved user experience for browsing and ordering food online.",
@@ -56,16 +66,6 @@ const projectsList: ProjectGridItem[] = [
     icon: <Binary className="text-accent-blue" size={48} />,
     github: "[HOSPITAL_SYSTEM_GITHUB]",
     demo: "[HOSPITAL_SYSTEM_DEMO]",
-  },
-  {
-    title: "Smart Waste Segregation using Computer Vision",
-    description:
-      "An AI-powered waste detection application built with YOLOv8, OpenCV, and Streamlit. Detects five waste categories and provides practical segregation guidance with confidence-based unknown/review handling.",
-    status: "COMPLETED",
-    tags: ["Python", "YOLOv8", "OpenCV", "Streamlit", "Computer Vision"],
-    statusColor: "blue",
-    icon: <Binary className="text-accent-blue" size={48} />,
-    github: "https://github.com/raj-239205/Smart-Waste-Segregation",
   },
 ];
 
