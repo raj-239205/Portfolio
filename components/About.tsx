@@ -79,7 +79,7 @@ export default function About() {
 
               <div className="bg-bg-secondary border border-white/5 rounded-lg py-4 px-2 text-center hover:border-accent-gold/20 hover:bg-bg-card hover:-translate-y-1 transition-all duration-300">
                 <div className="font-headings text-2xl font-black text-accent-gold mb-1">
-                  <Counter value={3} />
+                  <Counter value={4} />
                 </div>
                 <div className="text-[0.7rem] text-text-secondary font-medium uppercase tracking-wider">
                   Projects
