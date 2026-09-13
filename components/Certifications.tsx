@@ -14,6 +14,20 @@ interface CertificateItem {
 
 const certificates: CertificateItem[] = [
   {
+    name: "Internship Certificate — Frontend Development",
+    issuer: "Bussibees EdTech Pvt. Ltd",
+    date: "2025",
+    link: "#",
+    skills: ["HTML", "CSS", "JavaScript", "UI Design", "Responsive Layouts"],
+  },
+  {
+    name: "Smart Waste Segregation using Computer Vision",
+    issuer: "B.Tech Industrial Training Project",
+    date: "2026",
+    link: "https://github.com/raj-239205/Smart-Waste-Segregation",
+    skills: ["Python", "YOLOv8", "OpenCV", "Streamlit", "Computer Vision"],
+  },
+  {
     name: "Software Engineer Certification",
     issuer: "HackerRank",
     date: "2026",
@@ -93,7 +107,6 @@ export default function Certifications() {
               className="bg-bg-card border border-border-subtle rounded-xl p-6 shadow-premium transition-all duration-300 flex flex-col gap-4 relative group hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(247,201,72,0.12)] hover:border-accent-gold/25"
             >
               <div className="flex gap-6 items-start w-full">
-                {/* Seal decoration background */}
                 <div className="absolute top-4 right-4 opacity-[0.03] pointer-events-none text-accent-gold group-hover:scale-110 transition-transform duration-300">
                   <Award size={64} />
                 </div>
@@ -116,7 +129,6 @@ export default function Certifications() {
                 </div>
               </div>
 
-              {/* Desktop hover overlay action area */}
               <div className="absolute inset-0 bg-[#081224]/98 opacity-0 group-hover:opacity-100 transition-all duration-[250ms] flex flex-col justify-center p-6 z-30 pointer-events-none group-hover:pointer-events-auto hidden md:flex border border-accent-gold/20 rounded-xl">
                 <div className="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[250ms] ease-out flex flex-col gap-3">
                   <div>
@@ -146,7 +158,6 @@ export default function Certifications() {
                 </div>
               </div>
 
-              {/* Mobile Expanded layout below */}
               <div className="block md:hidden mt-4 pt-4 border-t border-white/5 flex flex-col gap-3 w-full">
                 <div>
                   <h4 className="text-[0.7rem] text-accent-gold uppercase font-semibold tracking-wider mb-1.5">Skills Learned</h4>
