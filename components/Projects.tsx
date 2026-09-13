@@ -25,6 +25,7 @@ const projectsList: ProjectGridItem[] = [
     statusColor: "blue",
     icon: <Binary className="text-accent-blue" size={48} />,
     github: "https://github.com/raj-239205/Smart-Waste-Segregation",
+    demo: "#",
   },
   {
     title: "OMNI FOODS",
