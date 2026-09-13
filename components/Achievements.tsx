@@ -60,6 +60,17 @@ const achievements: AchievementItem[] = [
     details: "Successfully finished frontend internship at Bussibees EdTech, designing layouts, responsive grids, and clean visual structures.",
     proofUrl: "#",
   },
+  {
+    title: "Smart Waste Segregation using Computer Vision",
+    badge: "Project",
+    badgeType: "gold",
+    platform: "B.Tech Industrial Training — 2026",
+    description:
+      "Developed an AI-powered waste detection and segregation application using YOLOv8, OpenCV, and Streamlit with five supported waste categories.",
+    icon: <Trophy className="text-accent-gold" size={24} />,
+    details: "Built an end-to-end computer vision workflow covering dataset preparation, YOLOv8 training and validation, inference, detection statistics, annotated output, and confidence-based unknown/review handling.",
+    proofUrl: "https://github.com/raj-239205/Smart-Waste-Segregation",
+  },
 ];
 
 export default function Achievements() {
