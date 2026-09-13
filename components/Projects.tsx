@@ -103,7 +103,6 @@ export default function Projects() {
         </motion.p>
 
         <div className="flex flex-col gap-10">
-          {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projectsList.map((proj, idx) => {
               const isGold = proj.statusColor === "gold";
@@ -131,8 +130,6 @@ export default function Projects() {
                     >
                       {proj.status}
                     </span>
-
-                    {/* Graphic SVGs */}
                     <div className="group-hover:scale-110 transition-transform duration-300">
                       {proj.icon}
                     </div>
@@ -172,7 +169,6 @@ export default function Projects() {
                         ))}
                       </div>
 
-                      {/* Action buttons (always visible on mobile, slide up + fade in on hover on desktop) */}
                       <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-white/5 w-full md:opacity-0 md:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
                         <div className="flex gap-2">
                           <a
@@ -184,17 +180,15 @@ export default function Projects() {
                           >
                             GitHub
                           </a>
-                          {proj.demo && (
-                            <a
-                              href={proj.demo}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              aria-label={`View ${proj.title} live demo in a new tab`}
-                              className="flex-1 py-2 bg-accent-gold text-bg-primary hover:bg-[#ffe066] text-center text-[0.7rem] font-semibold rounded h-8 flex items-center justify-center transition-all"
-                            >
-                              Live Demo
-                            </a>
-                          )}
+                          <a
+                            href={proj.demo || "#"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`View ${proj.title} live demo in a new tab`}
+                            className="flex-1 py-2 bg-accent-gold text-bg-primary hover:bg-[#ffe066] text-center text-[0.7rem] font-semibold rounded h-8 flex items-center justify-center transition-all"
+                          >
+                            Live Demo
+                          </a>
                         </div>
                         <a
                           href={`${proj.github}/archive/refs/heads/main.zip`}
